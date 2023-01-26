@@ -1,11 +1,18 @@
 import { Button, Typography } from "@mui/material";
+import { useRouter } from "next/router";
 
 const CallToActionBtn = () => {
+  const { push } = useRouter();
+
+  const handleServices = () => {
+    void push("/#services");
+  };
+
   return (
     <Button
       variant="text"
       component="a"
-      href="#services"
+      onClick={handleServices}
       sx={{
         px: 1,
         py: 0.5,

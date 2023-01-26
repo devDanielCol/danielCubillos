@@ -1,12 +1,15 @@
-import { AppBar, Toolbar, Box, useScrollTrigger, Avatar } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  useScrollTrigger,
+  Button,
+  Typography,
+} from "@mui/material";
 import MenuToolpit from "../Atoms/MenuToolpit/MenuToolpit";
-import CallToActionBtns from "../Atoms/CallToActionBtns/CallToActionBtns";
-import ContactItem from "../../../MenuContent/Contact/Molecules/ContactMenuItem";
-import AboutUsMenuItem from "../../../MenuContent/Solutions/Molecules/AboutUsMenuItem";
 import ThemeButton from "../../../ThemeCtrl/ThemeBtn/ThemeBtn";
 import Pages from "../../../MenuContent/PagesList/Molecules/PagesList";
 import useTheme from "../../../../util/hooks/useTheme";
-import Link from "next/link";
 
 interface NavbarDeskopProps {
   window?: () => Window;
@@ -36,65 +39,17 @@ const NavbarDeskop = (props: NavbarDeskopProps) => {
             lg: "block",
           },
           borderBottomColor: trigger ? "#4e317e50" : "transparent",
-          py: trigger ? 1 : 3,
-          px: trigger ? 1 : 2,
+          py: trigger ? 1 : 5,
+          px: trigger ? 1 : 6,
         }}
       >
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Link href={"/"}>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  position: trigger ? "initial" : "absolute",
-                  bgcolor: trigger ? "transparent" : "#ffa700",
-                  pr: trigger ? 0 : 1,
-                  left: trigger ? 0 : -35,
-                  overflow: trigger ? "initial" : "hidden",
-                  borderBottomRightRadius: "100%",
-                  borderTopRightRadius: 200,
-                }}
-              >
-                <Box
-                  sx={{
-                    pr: trigger ? 0 : 2,
-                    pb: trigger ? 0 : 0.5,
-                    bgcolor: trigger ? "transparent" : "#ffea00",
-                    overflow: trigger ? "initial" : "hidden",
-                    borderBottomRightRadius: "100%",
-                    borderTopRightRadius: 200,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      pl: trigger ? 0 : 3,
-                      pr: trigger ? 0 : 6,
-                      pt: trigger ? 0 : 8,
-                      pb: trigger ? 0 : 3,
-                      bgcolor: trigger ? "inherit" : "white",
-                      left: trigger ? 0 : -35,
-                      overflow: trigger ? "initial" : "hidden",
-                      borderBottomRightRadius: "100%",
-                      borderTopRightRadius: 200,
-                    }}
-                  >
-                    <Avatar
-                      src="/image/logo.png"
-                      sx={{
-                        transition: "all .2s linear",
-                        width: trigger ? "50px" : "100px",
-                        height: trigger ? "50px" : "100px",
-                      }}
-                    />
-                  </Box>
-                </Box>
-              </Box>
-            </Box>
-          </Link>
+        <Toolbar
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            color: trigger ? theme.palette.custom.text : "white",
+          }}
+        >
           <Box
             sx={{
               display: "flex",
@@ -102,10 +57,29 @@ const NavbarDeskop = (props: NavbarDeskopProps) => {
               color: trigger ? theme.palette.custom.text : "white",
             }}
           >
-            <MenuToolpit name="Páginas" element={<Pages />} />
-            <MenuToolpit name="Soluciones" element={<AboutUsMenuItem />} />
-            <MenuToolpit name="Contacto" element={<ContactItem />} />
-            <CallToActionBtns />
+            <Typography sx={{ mr: 3, fontWeight: 900 }}>GPT-3</Typography>
+            <MenuToolpit name="Home" element={<Pages />} />
+            <MenuToolpit name="What is GPT?" element={<Pages />} />
+            <MenuToolpit name="Open AI" element={<Pages />} />
+            <MenuToolpit name="Case Studies" element={<Pages />} />
+            <MenuToolpit name="Library" element={<Pages />} />
+          </Box>
+          <Box>
+            <Button variant="text" sx={{ color: "inherit" }}>
+              Sign in
+            </Button>
+            <Button
+              variant="contained"
+              sx={{
+                color: "inherit",
+                ml: 2,
+                px: 3,
+                py: 1.2,
+                backgroundColor: "#FF4820",
+              }}
+            >
+              Sign up
+            </Button>
             <ThemeButton sx={{ ml: 2, color: "inherit" }} />
           </Box>
         </Toolbar>

@@ -31,11 +31,11 @@ const darkThemeOption = {
       primary: "#ffffff",
     },
     background: {
-      default: "#000",
-      paper: "#111",
+      default: "#040C18",
+      paper: "#002853",
     },
     custom: {
-      navbar: "#000000",
+      navbar: "#002853",
       text: "#fff",
       callaction: "#fff",
       section1: "#ffa700",

@@ -6,7 +6,6 @@ import BodyDocument from "../Body";
 import FooterDocument from "../Footer";
 import HeadDocument from "../Head";
 import KeyboardDoubleArrowUpRoundedIcon from "@mui/icons-material/KeyboardDoubleArrowUpRounded";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 interface IContentProps {
   children?: ReactNode;
@@ -36,22 +35,6 @@ const Content: FC<IContentProps> = ({ children, title, description }) => {
             }}
           >
             <KeyboardDoubleArrowUpRoundedIcon />
-          </IconButton>
-          <IconButton
-            href="https://wa.me/3203379213"
-            sx={{
-              position: "fixed",
-              bottom: "80px",
-              right: "20px",
-              zIndex: 1000,
-              backgroundColor: "#fff",
-              "&:hover": {
-                backgroundColor: "#fff",
-              },
-              color: "#24d366",
-            }}
-          >
-            <WhatsAppIcon sx={{ width: "50px", height: "50px" }} />
           </IconButton>
         </>
       </BodyDocument>

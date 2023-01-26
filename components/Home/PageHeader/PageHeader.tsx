@@ -1,8 +1,16 @@
-import { Box } from "@mui/material";
+import {
+  Avatar,
+  AvatarGroup,
+  Box,
+  Button,
+  FormControl,
+  Grid,
+  Input,
+  Typography,
+} from "@mui/material";
 import { FC, useState } from "react";
 import { InView } from "react-intersection-observer";
 import GradientText from "../../GradientText/GradientText";
-import gradients from "../../../styles/colors/gradients";
 
 const BannerPrincipal: FC = () => {
   const [inview, setInview] = useState<boolean>(false);
@@ -10,29 +18,34 @@ const BannerPrincipal: FC = () => {
   return (
     <Box
       sx={{
-        position: "relative",
-        height: { xs: "70vh", md: "90vh" },
-        borderBottomRightRadius: "40%",
+        minHeight: { xs: "70vh", md: "100vh" },
         overflow: "hidden",
+        backgroundImage:
+          "linear-gradient(160deg,#002853,#0d233c 30%,#061225 50%,#07152a 80%,#040c18)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        px: "4rem",
+        pt: "4rem",
       }}
     >
-      <Box
+      <Grid
+        container
         sx={{
-          top: 0,
-          position: "absolute",
-          width: "100%",
           height: "100%",
-          zIndex: 2,
-          px: 2,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <Box
+        <Grid
+          item
+          xs={7}
           sx={{
-            width: "100%",
             height: "100%",
             display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            flexDirection: "column",
+            color: "#81AFDD",
           }}
         >
           <InView
@@ -40,74 +53,96 @@ const BannerPrincipal: FC = () => {
               setInview(inView);
             }}
             threshold={1}
-            delay={0}
+            delay={200}
           >
-            <Box
-              sx={{
-                opacity: inview ? 1 : 0,
-                transition: "all .4s linear",
-                textAlign: { xs: "center", md: "center" },
-              }}
-            >
+            <Box sx={{ opacity: inview ? 1 : 0, transition: "all .4s linear" }}>
               <GradientText
-                fontSize={{
-                  xs: "50px",
-                  sm: "60px",
-                  md: "70px",
-                  lg: "80px",
-                }}
-                textAlign={{ xs: "center", md: "center" }}
-                letterSpacing={{ xs: "-2px", sm: "-3px" }}
-                gradient={gradients.whiteLight}
-                sx={{ ml: 0 }}
-              >
-                Construcciones y acabados
-              </GradientText>
-              <Box
+                fontSize={"4.5rem"}
+                gradient="linear-gradient(355deg, #AE67FA 1.84%, #F49867 102.67%)"
                 sx={{
-                  fontSize: { xs: "60px", sm: "80px", lg: "100px" },
-                  fontWeight: 700,
-                  color: "white",
-                  lineHeight: 1,
-                  letterSpacing: { xs: "0px", md: "-2px" },
-                  mt: 3,
-                  textTransform: "uppercase",
+                  letterSpacing: "-2px",
+                  wordSpacing: "-7px",
                 }}
               >
-                Peniel
-              </Box>
+                Let’s Build Something amazing with GPT-3 OpenAI
+              </GradientText>
             </Box>
           </InView>
-        </Box>
-      </Box>
 
-      <Box
-        sx={{
-          top: 0,
-          position: "absolute",
-          width: "100vw",
-          height: "100%",
-          backgroundImage: "url(/image/bgt1.svg)",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          zIndex: 1,
-          opacity: 0.3,
-        }}
-      ></Box>
-      <Box
-        sx={{
-          top: 0,
-          position: "absolute",
-          width: "100vw",
-          height: "100%",
-          backgroundColor: "transparent",
-          backgroundImage:
-            "url(https://cdn.pixabay.com/photo/2016/12/08/21/21/skyscrapers-1893201_1280.jpg)",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          filter: "brightness(0.5)",
-        }}
-      ></Box>
+          <Typography sx={{ maxWidth: "65%", my: 4 }}>
+            Yet bed any for travelling assistance indulgence unpleasing. Not
+            thoughts all exercise blessing. Indulgence way everything joy
+            alteration boisterous the attachment. Party we years to order allow
+            asked of.
+          </Typography>
+          <FormControl
+            sx={{ width: "100%", display: "flex", flexDirection: "row" }}
+          >
+            <Input
+              placeholder="Your Email Address"
+              sx={{
+                color: "#3D6184",
+                py: "1.3rem",
+                px: 4,
+                backgroundColor: "#052D56",
+                width: "60%",
+                "& ::placeholder": {
+                  color: "#3D6184",
+                  opacity: "100%",
+                },
+              }}
+            />
+
+            <Button
+              sx={{
+                backgroundColor: "#FF4820",
+                color: "white",
+                width: "20%",
+                "&:hover": {
+                  backgroundColor: "#FF4820",
+                  color: "white",
+                },
+              }}
+            >
+              Get Started
+            </Button>
+          </FormControl>
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "start",
+              alignItems: "center",
+              mt: 4,
+            }}
+          >
+            <AvatarGroup>
+              {[1, 2, 3, 4, 5, 6, 7].map((_, i) => (
+                <Avatar
+                  key={i}
+                  alt="Remy Sharp"
+                  src="https://cdn.pixabay.com/photo/2015/03/03/18/58/woman-657753_1280.jpg"
+                />
+              ))}
+            </AvatarGroup>
+            <Typography sx={{ color: "white", ml: 3 }}>
+              1,600 people requested access a visit in last 24 hours
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={5} height="100%">
+          <Box
+            sx={{
+              width: "100%",
+              height: "70vh",
+              backgroundImage: "url(./image/header.png)",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          ></Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 };
