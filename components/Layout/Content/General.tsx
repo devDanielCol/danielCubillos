@@ -1,7 +1,6 @@
 import { IconButton } from "@mui/material";
 import { FC, ReactNode } from "react";
 import NavbarDeskop from "../../Navbar/NavbarDeskop/Molecules/NabvarDeskop";
-import NavbarMobile from "../../Navbar/NavbarMobile/Molecules/NavBarMobile";
 import BodyDocument from "../Body";
 import FooterDocument from "../Footer";
 import HeadDocument from "../Head";
@@ -20,7 +19,7 @@ const Content: FC<IContentProps> = ({ children, title, description }) => {
       <BodyDocument>
         <>
           <NavbarDeskop />
-          <NavbarMobile />
+
           <>{children}</>
           <FooterDocument />
 

@@ -34,10 +34,6 @@ const NavbarDeskop = (props: NavbarDeskopProps) => {
           // backdropFilter: trigger ? "blur(15px)" : "blur(0px)",
           backgroundColor: trigger ? "custom.navbar" : "transparent",
           backgroundImage: "none",
-          display: {
-            xs: "none",
-            lg: "block",
-          },
           borderBottomColor: trigger ? "#4e317e50" : "transparent",
           py: trigger ? 1 : 5,
           px: trigger ? 1 : 6,
