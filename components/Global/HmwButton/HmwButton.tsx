@@ -1,56 +1,71 @@
 import { Button, SxProps, Typography } from "@mui/material";
-import { MouseEvent } from "react";
+import { useState } from "react";
+import CenterMenu from "../../Topbar/MenuMovil/Molecules/CenterMenu";
 
 interface IHmwButtonProps {
-  onClick?(event: MouseEvent<HTMLButtonElement>): void;
-  open?: boolean;
   sx?: SxProps;
   bgColor?: string;
 }
 
-const HmwButton = ({ onClick, open, sx, bgColor }: IHmwButtonProps) => {
+const HmwButton = ({ sx, bgColor }: IHmwButtonProps) => {
+  const [opent, setOpen] = useState<boolean>(false);
+  const open = false;
+
+  const openMenu = () => {
+    setOpen(!opent);
+  };
+
   return (
-    <Button
-      onClick={onClick}
-      sx={{ display: "flex", flexDirection: "column", ...sx }}
-    >
-      <Typography
-        component="div"
+    <>
+      <Button
+        onClick={openMenu}
         sx={{
-          width: "30px",
-          height: "2px",
-          backgroundColor: bgColor,
-          transform: open
-            ? "rotate(-45deg) translateX(-1px) translateY(7px)"
-            : "",
-          transition: "all .2s linear",
+          display: "flex",
+          p: 1,
+          minWidth: "auto",
+          flexDirection: "column",
+          ...sx,
         }}
-      />
-      <Typography
-        component="div"
-        sx={{
-          mt: 0.5,
-          width: "30px",
-          height: "2px",
-          opacity: open ? "0%" : "100%",
-          backgroundColor: bgColor,
-          transition: "all .2s linear",
-        }}
-      />
-      <Typography
-        component="div"
-        sx={{
-          mt: 0.5,
-          width: "30px",
-          height: "2px",
-          backgroundColor: bgColor,
-          transform: open
-            ? "rotate(45deg) translateX(-1px) translateY(-7px)"
-            : "",
-          transition: "all .2s linear",
-        }}
-      />
-    </Button>
+      >
+        <Typography
+          component="div"
+          sx={{
+            width: { xs: "25px", sm: "30px" },
+            height: "1.5px",
+            backgroundColor: bgColor,
+            transform: open
+              ? "rotate(-45deg) translateX(-1px) translateY(7px)"
+              : "",
+            transition: "all .2s linear",
+          }}
+        />
+        <Typography
+          component="div"
+          sx={{
+            width: { xs: "25px", sm: "30px" },
+            mt: 0.5,
+            height: "1.5px",
+            opacity: open ? "0%" : "100%",
+            backgroundColor: bgColor,
+            transition: "all .2s linear",
+          }}
+        />
+        <Typography
+          component="div"
+          sx={{
+            width: { xs: "25px", sm: "30px" },
+            mt: 0.5,
+            height: "1.5px",
+            backgroundColor: bgColor,
+            transform: open
+              ? "rotate(45deg) translateX(-1px) translateY(-7px)"
+              : "",
+            transition: "all .2s linear",
+          }}
+        />
+      </Button>
+      <CenterMenu open={opent} onClose={openMenu} />
+    </>
   );
 };
 

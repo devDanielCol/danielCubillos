@@ -1,15 +1,11 @@
 import PageHeader from "../components/Home/PageHeader/PageHeader";
-import Content from "../components/Layout/Content/General";
-import { Box, Grid, Typography } from "@mui/material";
-import { Container } from "@mui/system";
-import Image from "next/image";
-import GradientText from "../components/GradientText/GradientText";
+import MainLayout from "../components/Layout/Main";
 
 export default function Home() {
   return (
-    <Content title="Home | Peniel construcciones">
+    <MainLayout title="Inicio">
       <PageHeader />
-      <Box
+      {/* <Box
         sx={{
           backgroundImage:
             "linear-gradient(20deg,#0b1016,#111b26 30%,#061225 50%,#07152a 80%,#040c18)",
@@ -173,7 +169,7 @@ export default function Home() {
             </Box>
           </Box>
         </Box>
-      </Box>
-    </Content>
+      </Box> */}
+    </MainLayout>
   );
 }

@@ -1,19 +1,7 @@
 import * as React from "react";
-import {
-  Box,
-  ButtonGroup,
-  Container,
-  Divider,
-  Grid,
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { Box, Container, Divider, Grid, Typography } from "@mui/material";
 import { SxProps } from "@mui/material/styles";
 import Link from "@mui/material/Link";
-import Image from "next/image";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
-import InstagramIcon from "@mui/icons-material/Instagram";
 
 interface IProps {
   sx?: SxProps;
@@ -98,6 +86,7 @@ const Footer = () => {
         </Grid>
       </Container>
       <Divider sx={{ width: "100%", backgroundColor: "white" }} />
+      <Copyright />
     </Box>
   );
 };
